@@ -6,8 +6,11 @@ from mptt.models import MPTTModel, TreeForeignKey
 class Category(MPTTModel):
     """Модель, отвечает за категории"""
     name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100)
-    parent = TreeForeignKey('self', related_name='children', on_delete=models.SET_NULL, null=True, blank=True) # что бы были подкатегории
+    slug = models.SlugField(max_length=100, unique=True)
+    parent = TreeForeignKey('self', related_name='children', on_delete=models.SET_NULL, null=True, blank=True)  # что бы были подкатегории
+
+    def __str__(self):
+        return self.name
 
     class MPTTMeta:
         """Автоматически упорядочивает элементы в дереве по ключу name"""
@@ -17,7 +20,10 @@ class Category(MPTTModel):
 class Tag(models.Model):
     """Модель, отвечает за теги"""
     name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -25,10 +31,10 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='articles/')
-    text =  models.TextField()
+    text = models.TextField()
     category = models.ForeignKey(Category, related_name='post', on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField(Tag, related_name='post', blank=True)
-    create_at = models.DateTimeField(auto_now_add=True) # когда была создана данная запись
+    create_at = models.DateTimeField(auto_now_add=True)  # когда была создана данная запись
 
 
 class Recipe(models.Model):
