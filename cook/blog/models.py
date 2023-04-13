@@ -30,7 +30,7 @@ class Post(models.Model):
     """Модель, отвечает за пост"""
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='articles/')
+    image = models.ImageField(upload_to='articles/%Y/%m/%d', null=True, blank=True)
     text = models.TextField()
     category = models.ForeignKey(Category, related_name='post', on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField(Tag, related_name='post', blank=True)
