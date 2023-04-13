@@ -121,8 +121,8 @@ USE_TZ = False
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [STATIC_ROOT] # все наши собранные директории, статик файлов
+STATIC_DIR = BASE_DIR / 'static'
+STATICFILES_DIRS = [STATIC_DIR] # все наши собранные директории, статик файлов
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
