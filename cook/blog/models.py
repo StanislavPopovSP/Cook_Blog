@@ -36,6 +36,9 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, related_name='post', blank=True)
     create_at = models.DateTimeField(auto_now_add=True)  # когда была создана данная запись
 
+    def __str__(self):
+        return self.title
+
 
 class Recipe(models.Model):
     """Модель, отвечает за рецепты"""
@@ -47,6 +50,8 @@ class Recipe(models.Model):
     directions = models.TextField()
     post = models.ForeignKey(Post, related_name='recipe', on_delete=models.SET_NULL, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
 
 class Comment(models.Model):
     """Модель, для комментариев"""
@@ -55,3 +60,6 @@ class Comment(models.Model):
     website = models.CharField(max_length=150)
     message = models.TextField(max_length=500)
     post = models.ForeignKey(Post, related_name='comment', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
