@@ -27,6 +27,7 @@ class RecipeInline(admin.StackedInline):
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     """Регистрация и вывод нужных полей"""
+    prepopulated_fields = {'slug': ('title',)}
     list_display = ['title', 'category', 'author', 'create_at', 'id']
     inlines = [RecipeInline] # подключение модели Recipe
 
