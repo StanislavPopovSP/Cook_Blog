@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 from mptt.models import MPTTModel, TreeForeignKey
 
 
@@ -29,6 +30,7 @@ class Tag(models.Model):
 class Post(models.Model):
     """Модель, отвечает за пост"""
     author = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=200, unique=True, default='')
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='articles/%Y/%m/%d', null=True, blank=True)
     text = models.TextField()
@@ -38,6 +40,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        """Конкретный путь для поста"""
+        return reverse('post_single', kwargs={'slug': self.category.slug, 'post_slug': self.slug})
 
 
 class Recipe(models.Model):
