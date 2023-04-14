@@ -10,7 +10,7 @@ class CustomMPTTModelAdmin(MPTTModelAdmin):
 
 # class CategoryAdmin(admin.ModelAdmin):
 #     prepopulated_fields = {'slug': ('name',)}
-
+#     list_display = ['name', 'id']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -34,7 +34,7 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     """Регистрация и вывод нужных полей"""
-    list_display = ['name', 'prep_time', 'cook_time', 'post']
+    list_display = ['name', 'prep_time', 'cook_time', 'post', 'id']
 
 
 admin.site.register(Category, CustomMPTTModelAdmin)
