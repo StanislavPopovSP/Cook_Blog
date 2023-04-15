@@ -1,7 +1,15 @@
 .idea
+idea
+.DS_Store
+db.sqlite3
 venv
 
 __pycache__
-*.py[com]
+*/__pycache__
+*.py[com]*
+*.py[cod]
+
+!*media/.gitkeep
+media/*
 
 *test*
