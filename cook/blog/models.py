@@ -54,7 +54,7 @@ class Recipe(models.Model):
     cook_time = models.PositiveIntegerField(default=0)
     ingredients = models.TextField()
     directions = models.TextField()
-    post = models.ForeignKey(Post, related_name='recipe', on_delete=models.SET_NULL, null=True, blank=True)
+    post = models.ForeignKey(Post, related_name='recipes', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.name
