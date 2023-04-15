@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'mptt', # подключил mptt библиотеку
+    'ckeditor', # подключил для подключения текстового редактора, для нашей админки, что бы возвращался валидный html
 
     'blog.apps.BlogConfig',
 ]
@@ -131,3 +132,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
