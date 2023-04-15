@@ -30,6 +30,8 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_display = ['title', 'category', 'author', 'create_at', 'id']
     inlines = [RecipeInline] # подключение модели Recipe
+    save_as = True # сохраняет как новый объект, уже существующий
+    save_on_top = True # кнопки сохранения будут вверху
 
 
 @admin.register(Recipe)
