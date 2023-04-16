@@ -49,7 +49,7 @@ class Post(models.Model):
 
 class Recipe(models.Model):
     """Модель, отвечает за рецепты"""
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=True, blank=True)
     serves = models.CharField(max_length=50)
     prep_time = models.PositiveIntegerField(default=0)
     cook_time = models.PositiveIntegerField(default=0)
@@ -57,8 +57,6 @@ class Recipe(models.Model):
     directions = RichTextField()
     post = models.ForeignKey(Post, related_name='recipes', on_delete=models.SET_NULL, null=True, blank=True)
 
-    def __str__(self):
-        return self.name
 
 class Comment(models.Model):
     """Модель, для комментариев"""
