@@ -393,10 +393,26 @@ ol {
 
 .header__menu ul li .dropdown__menu {
 	position: absolute;
-	left: 0;
+	left: 0px;
 	top: 62px;
 	width: 180px;
-	background: #222222;
+	background: #989d8b;
+	z-index: 9;
+	text-align: left;
+	-webkit-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+	opacity: 0;
+	visibility: hidden;
+	padding: 10px 0;
+}
+
+.header__menu ul li .children {
+    position: absolute;
+	left: 125px;
+	top: 62px;
+	width: 180px;
+	background: #989d8b;
 	z-index: 9;
 	text-align: left;
 	-webkit-transition: all, 0.3s;
