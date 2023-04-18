@@ -396,7 +396,7 @@ ol {
 	left: 0px;
 	top: 62px;
 	width: 180px;
-	background: #989d8b;
+	background: #222222;
 	z-index: 9;
 	text-align: left;
 	-webkit-transition: all, 0.3s;
@@ -412,7 +412,7 @@ ol {
 	left: 125px;
 	top: 62px;
 	width: 180px;
-	background: #989d8b;
+	background: #222222;
 	z-index: 9;
 	text-align: left;
 	-webkit-transition: all, 0.3s;
