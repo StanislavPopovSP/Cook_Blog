@@ -5,7 +5,7 @@ class ContactModel(models.Model):
     """Модель, отвечает за обратную связь"""
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    website = models.URLField()
+    website = models.URLField(null=True, blank=True)
     message = models.TextField(max_length=5000)
     create_at = models.DateTimeField(auto_now_add=True)
 
