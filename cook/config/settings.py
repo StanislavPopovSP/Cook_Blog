@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'mptt', # подключил mptt библиотеку
     'ckeditor', # подключил для подключения текстового редактора, для нашей админки, что бы возвращался валидный html
 
-    'blog.apps.BlogConfig',
+    'blog.apps.BlogConfig', # приложение
+    'contact.apps.ContactConfig', # приложение
 ]
 
 MIDDLEWARE = [
