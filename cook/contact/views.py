@@ -6,7 +6,7 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 class ContactView(View):
-    """"""
+    """Выводит контакты, форму"""
     def get(self, request):
         contacts = ContactLink.objects.all()
         form = ContactForm()
