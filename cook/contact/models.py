@@ -29,6 +29,16 @@ class About(models.Model):
     text = RichTextField()
     mini_text = RichTextField()
 
+    # Как альтернатива запросу шаблона
+    # def get_first_image(self):
+    #     """Получает первую фотографию"""
+    #     item = self.about_images.first()
+    #     return item.image.url
+
+    # Как альтернатива запросу шаблона
+    # def get_image(self):
+    #     """Возвращается со второго изображения"""
+    #     return self.about_images.order_by('id')[1:4]
 
 class ImageAbout(models.Model):
     """Модель, отвечает за изображения на странице о нас"""
