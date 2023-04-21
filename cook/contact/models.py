@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class ContactModel(models.Model):
@@ -20,3 +21,23 @@ class ContactLink(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+class About(models.Model):
+    """Модель, отвечает за страницу о нас"""
+    title = models.CharField(max_length=200)
+    text = RichTextField()
+    mini_text = RichTextField()
+
+
+class ImageAbout(models.Model):
+    """Модель, отвечает за изображения на странице о нас"""
+    image = models.ImageField(upload_to='about/')
+    page = models.ForeignKey(About, on_delete=models.CASCADE, related_name='about_images')
+
+
+class Social(models.Model):
+    """Модель, отвечает за соц сети страницы о нас """
+    icon = models.FileField(upload_to='icons/')
+    link = models.URLField()
+    alt = models.CharField(max_length=100)
