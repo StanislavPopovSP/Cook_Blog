@@ -13,6 +13,7 @@ class ImageAboutInline(admin.StackedInline):
     model = ImageAbout
     extra = 1
 
+
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
     """Регистрация и вывод нужных полей"""
@@ -20,5 +21,10 @@ class AboutAdmin(admin.ModelAdmin):
     inlines = [ImageAboutInline]
 
 
+@admin.register(Social)
+class AboutAdmin(admin.ModelAdmin):
+    """Регистрация и вывод нужных полей"""
+    list_display = ['link', 'icon', 'id']
+
+
 admin.site.register(ContactLink)
-admin.site.register(Social)
