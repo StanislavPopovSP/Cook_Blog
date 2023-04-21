@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load social_tags %}
 {% block content %}
 
 <section class="about spad">
@@ -25,7 +25,9 @@
                         {% for item in about.about_images.all %}
                         {% if forloop.counter <= 3 and forloop.counter != 1 %}
                         <div class="about__pic__item">
+                            {% if item.image %}
                             <img src="{{ item.image.url }}" alt="{{ item.alt }}">
+                            {% endif %}
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -36,10 +38,15 @@
                         <h2>{{ about.title }}</h2>
                         {{ about.text|safe }}
                         <div class="about__right__text__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <!-- Подключение ссылок -->
+                            {% get_social_links as social_link %}
+                            {% for item in social_link %}
+                            <a href="{{ item.link }}" target="_blank">
+                                {% if item.icon %}
+                                <img class="social__img" src="{{ item.icon.url }}" alt="">
+                                {% endif %}
+                            </a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
