@@ -558,7 +558,12 @@ ol {
 
 .header__social {
 	text-align: right;
-	padding: 63px 0;
+	padding: 61px 0px 0px 150px;
+	display: flex;
+}
+
+.social_header_img {
+    max-width: 64%;
 }
 
 .header__social a {
@@ -680,8 +685,8 @@ ol {
 }
 
 .humberger__menu__about img {
-	min-width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 1px;
+	max-width: 45%;
 }
 
 .humberger__menu__about h6 {
@@ -2505,6 +2510,18 @@ ol {
 
 .about__pic__item img {
 	min-width: 100%;
+}
+
+.social__img {
+    max-width: 30%;
+}
+
+.social__footer__img {
+    max-width: 35%;
+}
+
+.social__sidebar__img {
+    max-width: 38%;
 }
 
 .about__text {
