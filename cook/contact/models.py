@@ -44,10 +44,11 @@ class ImageAbout(models.Model):
     """Модель, отвечает за изображения на странице о нас"""
     image = models.ImageField(upload_to='about/')
     page = models.ForeignKey(About, on_delete=models.CASCADE, related_name='about_images')
+    alt = models.CharField(max_length=100, null=True, blank=True)
 
 
 class Social(models.Model):
     """Модель, отвечает за соц сети страницы о нас """
     icon = models.FileField(upload_to='icons/')
     link = models.URLField()
-    alt = models.CharField(max_length=100)
+    alt = models.CharField(max_length=100, null=True, blank=True)
