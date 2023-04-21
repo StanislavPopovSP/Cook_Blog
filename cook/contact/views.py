@@ -21,3 +21,13 @@ class CreateContact(CreateView):
     """Обработка формы для связи с поваром"""
     form_class = ContactForm
     success_url = reverse_lazy('home')
+
+
+class AboutView(View):
+    """Выводит контакты, форму"""
+    def get(self, request):
+        about = About.objects.last() # что бы выводилась одна последняя запись
+        context = {
+            'about': about,
+        }
+        return render(request, 'contact/about.html', context)
