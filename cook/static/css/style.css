@@ -681,12 +681,25 @@ ol {
 }
 
 .humberger__menu__about {
-	margin-bottom: 50px;
+
 }
 
 .humberger__menu__about img {
-	margin-bottom: 1px;
+	min-width: 100%;
+    margin-bottom: 20px;
+}
+
+.humberger__menu__icons img {
+    margin-bottom: 1px;
 	max-width: 45%;
+}
+
+.main__humberger__icon {
+
+}
+
+.humberger__menu__icons {
+    margin-bottom: 50px;
 }
 
 .humberger__menu__about h6 {
