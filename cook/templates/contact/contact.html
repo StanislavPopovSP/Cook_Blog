@@ -29,7 +29,9 @@
                             {% for contact in contacts %}
                             <li>
 <!--                                <i class="fa fa-map-marker"></i> Вывод иконкой  -->
+                                {% if contact.icon %}
                                 <img class="contact_icon" src="{{ contact.icon.url }}" alt="">
+                                {% endif %}
                                 <span>{{ contact.name }}</span>
                             </li>
                             {% endfor %}
