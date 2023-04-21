@@ -1,8 +1,8 @@
 from django import template
 from blog.models import Category, Post
 
-
 register = template.Library()
+
 
 @register.inclusion_tag('blog/include/tags/top_menu.html')
 def get_categories():
