@@ -1,4 +1,4 @@
-{% load menu_tags %}
+{% load menu_tags social_tags %}
 
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
@@ -23,11 +23,14 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.</p>
         <div class="humberger__menu__about__social sidebar__item__follow__links">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-envelope-o"></i></a>
+            {% get_social_links as social_link %}
+            {% for item in social_link %}
+            <a href="{{ item.link }}" target="_blank">
+                {% if item.icon %}
+                <img src="{{ item.icon.url }}" alt="">
+                {% endif %}
+            </a>
+            {% endfor %}
         </div>
     </div>
     <div class="humberger__menu__subscribe">
