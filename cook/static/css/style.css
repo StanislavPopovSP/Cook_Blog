@@ -694,8 +694,8 @@ ol {
 	max-width: 45%;
 }
 
-.main__humberger__icon {
-
+.humberger__menu__icons a {
+    background: #666666 !important;
 }
 
 .humberger__menu__icons {
