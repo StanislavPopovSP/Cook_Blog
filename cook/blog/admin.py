@@ -40,5 +40,9 @@ class RecipeAdmin(admin.ModelAdmin):
     list_display = ['name', 'prep_time', 'cook_time', 'post', 'id']
 
 
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'website', 'create_at', 'id']
+
+
 admin.site.register(Category, CustomMPTTModelAdmin)
-admin.site.register(Comment)
