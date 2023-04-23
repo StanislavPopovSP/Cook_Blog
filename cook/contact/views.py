@@ -24,7 +24,7 @@ class CreateContact(CreateView):
 
 
 class AboutView(View):
-    """Выводит контакты, форму"""
+    """Обрабатывает страницу о нас"""
     def get(self, request):
         about = About.objects.last() # что бы выводилась одна последняя запись
         context = {
