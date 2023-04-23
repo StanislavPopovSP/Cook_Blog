@@ -1,12 +1,12 @@
 from django import forms
-from .models import ContactModel
+from .models import Comment
 
 
-class ContactForm(forms.ModelForm):
-    """Создание формы, для связи с поваром"""
+class CommentForm(forms.ModelForm):
+    """Форма, для отправки комментариев"""
     class Meta:
-        model = ContactModel
-        fields = '__all__'
+        model = Comment
+        exclude = ['post', 'create_at']
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
