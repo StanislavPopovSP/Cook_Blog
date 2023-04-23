@@ -47,6 +47,10 @@ class Post(models.Model):
         """Конкретный путь для поста"""
         return reverse('post_single', kwargs={'slug': self.category.slug, 'post_slug': self.slug})
 
+    def get_comments(self):
+        """Доступ к комментариям"""
+        return self.comment.all()
+
 
 class Recipe(models.Model):
     """Модель, отвечает за рецепты"""

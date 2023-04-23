@@ -25,9 +25,15 @@ class ContactLink(models.Model):
 
 class About(models.Model):
     """Модель, отвечает за страницу о нас"""
+    name = models.CharField(max_length=50, default='')
+    profile_picture = models.ImageField(upload_to='about/author_profile', default='user-default.png')
     title = models.CharField(max_length=200)
     text = RichTextField()
     mini_text = RichTextField()
+    max_text = RichTextField(default='')
+
+    def __str__(self):
+        return f'{self.name}'
 
     # Как альтернатива запросу шаблона
     # def get_first_image(self):
