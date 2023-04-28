@@ -12,5 +12,5 @@ def get_social_links():
 
 @register.simple_tag()
 def get_about():
-    """Включающий тег, вывод изображения для left_nav.html"""
+    """Включающий тег, вывод изображения для left_nav.html, sidebar.html"""
     return About.objects.last()
