@@ -1,0 +1,15 @@
+{% load mptt_tags menu_tags %}
+
+<ul>
+    {% get_list_category as list_category %}
+    {% recursetree list_category %}
+    <li class="p-left">
+        <a href="{% url 'post_list' node.slug %}">{{ node.name }} <span>{{ node.post.all.count }}</span></a>
+        {% if not node.is_leaf_node %}
+        <ul>
+                {{ children }}
+        </ul>
+        {% endif %}
+    </li>
+    {% endrecursetree %}
+</ul>
