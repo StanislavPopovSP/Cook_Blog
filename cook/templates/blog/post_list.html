@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static social_tags %}
 {% block content %}
 <!-- Categories Section Begin категории -->
 <section class="categories categories-grid spad">
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- О шев поваре -->
+                    <!-- Дополнительный блок, вывод информации об авторе, выбор категорий, подписка. -->
                     {% include 'blog/include/sidebar/sidebar.html' %}
                 </div>
             </div>
