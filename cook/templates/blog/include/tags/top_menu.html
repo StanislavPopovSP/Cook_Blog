@@ -7,7 +7,7 @@
         {% recursetree list_category %}
         <li>
             <a href="{% url 'post_list' node.slug %}">{{ node.name }}</a>
-            {% if not node.is_leaf_node %}
+            {% if not node.is_leaf_node %} <!-- Возвращает True, если экземпляр модели является конечным узлом (у него нет дочерних элементов), False в противном случае -->
             <ul class="dropdown__menu children">
                 {{ children  }}
             </ul>
