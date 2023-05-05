@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-{% load social_tags %}
+{% load social_tags cache %}
 {% block content %}
 
+{% cache 5000 about %}
 <section class="about spad">
     <div class="container">
         <div class="about__text">
@@ -54,5 +55,6 @@
         </div>
     </div>
 </section>
+{% endcache %}
 
 {% endblock content %}

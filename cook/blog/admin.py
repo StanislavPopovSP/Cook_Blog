@@ -2,15 +2,13 @@ from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
 from .models import *
 
-
-class CustomMPTTModelAdmin(MPTTModelAdmin):
-    """Количество пикселей, для вложенных категорий"""
+@admin.register(Category)
+class CustomMPTTModelAdmin(MPTTModelAdmin, admin.ModelAdmin):
+    """Количество пикселей, для вложенных категорий и настройка вывода элементов"""
     mptt_level_indent = 20
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ['name', 'id']
 
-
-# class CategoryAdmin(admin.ModelAdmin):
-#     prepopulated_fields = {'slug': ('name',)}
-#     list_display = ['name', 'id']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -43,6 +41,3 @@ class RecipeAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'website', 'create_at', 'id']
-
-
-admin.site.register(Category, CustomMPTTModelAdmin)

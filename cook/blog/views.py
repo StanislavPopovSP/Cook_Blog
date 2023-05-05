@@ -37,7 +37,7 @@ class CreateComment(CreateView):
     form_class = CommentForm
 
     def form_valid(self, form):
-        """Проверка на валидацию"""
+        """Привязка комментария к посту"""
         form.instance.post_id = self.kwargs.get('pk')
         self.object = form.save()
         return super().form_valid(form)

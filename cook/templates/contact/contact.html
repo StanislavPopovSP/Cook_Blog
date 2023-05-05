@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
-
 {% block content %}
+{% load cache %}
+
 <!-- Contact Section Begin -->
+{% cache 5000 contact %}
 <section class="contact spad">
     <div class="container">
         <div class="contact__text">
@@ -45,14 +47,11 @@
                             <p>My experience with Realy is absolutely positive. The themes are beautifully designed
                                 and well documented. Realy theme provides quick support.</p>
                         </div>
+                        {% endcache %}
+
                         <form action="{% url 'feedback' %}" method="post">
                             {% csrf_token %}
                             {% for field in form %}
-                            <!--                            <input type="text" placeholder="Name">-->
-                            <!--                            <input type="text" placeholder="Email">-->
-                            <!--                            <input type="text" placeholder="Website">-->
-                            <!--                            <textarea placeholder="Message"></textarea>-->
-
                             {{ field }}
                             {% endfor %}
                             <button type="submit" class="site-btn">Submit</button>
