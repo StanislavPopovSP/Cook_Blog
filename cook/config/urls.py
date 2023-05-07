@@ -9,6 +9,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('contact.urls')),
     path('', include('blog.urls')),
+
 ]
 
 

@@ -26,5 +26,5 @@ def get_categories():
 @register.inclusion_tag('blog/include/tags/recipes_tag.html')
 def get_last_posts():
     """Включающий тег, забираем пять последних постов"""
-    posts = Post.objects.select_related('category').order_by('-id')[:5]
+    posts = Post.objects.select_related('category').order_by('-id')[:20]
     return {'list_last_post': posts}

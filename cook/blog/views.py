@@ -7,7 +7,7 @@ from django.shortcuts import render
 class HomeView(ListView):
     """Обработка главной страницы"""
     model = Post
-    paginate_by = 9 # кол-во выводимых постов
+    paginate_by = 12 # кол-во выводимых постов
     template_name = 'blog/home.html'
 
 class PostListView(ListView):
