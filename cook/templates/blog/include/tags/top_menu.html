@@ -5,6 +5,7 @@
     <a href="#">Categories</a>
     <ul class="dropdown__menu">
         {% recursetree list_category %}
+        {% if node.post__count > 0 %} <!-- если кол-во постов в категории 0, то данная категория не выводится. -->
         <li>
             <a href="{% url 'post_list' node.slug %}">{{ node.name }}</a>
             {% if not node.is_leaf_node %} <!-- Возвращает True, если экземпляр модели является конечным узлом (у него нет дочерних элементов), False в противном случае -->
@@ -13,6 +14,7 @@
             </ul>
             {% endif %}
         </li>
+        {% endif %}
         {% endrecursetree %}
     </ul>
 </li>

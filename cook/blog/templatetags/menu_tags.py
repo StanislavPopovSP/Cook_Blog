@@ -1,23 +1,24 @@
 from django import template
 from blog.models import Category, Post
+from django.db.models import Count  # Считает кол-во элементов
 
 register = template.Library()
 
 
 def get_all_categories():
-    """Возвращает все категории"""
-    return Category.objects.all()
+    """Возвращает все категории и кол-во постов в категории"""
+    return Category.objects.annotate(Count('post'))
 
 
 @register.simple_tag()
 def get_list_category():
-    """Включающий тег, вывод всех категорий и подкатегорий"""
+    """Считает количество постов в категории"""
     return get_all_categories()
 
 
 @register.inclusion_tag('blog/include/tags/top_menu.html')
 def get_categories():
-    """Включающий тег, вывод всех категорий и подкатегорий"""
+    """Вывод всех категорий и подкатегорий, считает количество постов в категории"""
     # category = Category.objects.filter(parent__isnull=True).order_by('name')
     category = get_all_categories()
     return {'list_category': category}

@@ -4,6 +4,7 @@
 <ul>
     {% get_list_category as list_category %}
     {% recursetree list_category %}
+    {% if node.post__count > 0 %} <!-- если кол-во постов в категории 0, то данная категория не выводится. -->
     <li class="p-left">
         <a href="{% url 'post_list' node.slug %}">{{ node.name }} <span>{{ node.post.all.count }}</span></a>
         {% if not node.is_leaf_node %}
@@ -12,5 +13,6 @@
         </ul>
         {% endif %}
     </li>
+    {% endif %}
     {% endrecursetree %}
 </ul>
