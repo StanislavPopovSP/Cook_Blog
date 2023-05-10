@@ -6,7 +6,7 @@ from django.db.models import Q
 class HomeView(ListView):
     """Обработка главной страницы"""
     model = Post
-    paginate_by = 12 # кол-во выводимых постов
+    paginate_by = 4 # кол-во выводимых постов
     template_name = 'blog/home.html'
 
 class Search(ListView):
@@ -23,6 +23,7 @@ class Search(ListView):
 class PostListView(ListView):
     """Категория определенной статьи"""
     model = Post
+    paginate_by = 2
 
     def get_queryset(self) -> list:
         """Фильтруем посты по нужной категории, переопределяем доступ к БД."""
