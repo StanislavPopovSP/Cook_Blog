@@ -1,14 +1,24 @@
 from django.views.generic import ListView, DetailView, CreateView
 from .models import *
 from .forms import CommentForm
-from django.urls import reverse_lazy
-from django.shortcuts import render
+from django.db.models import Q
 
 class HomeView(ListView):
     """Обработка главной страницы"""
     model = Post
     paginate_by = 12 # кол-во выводимых постов
     template_name = 'blog/home.html'
+
+class Search(ListView):
+    """Поиск постов на главной странице"""
+    template_name = 'blog/base.html'
+
+    def get_queryset(self) -> list:
+        return Post.objects.distinct().filter(
+            Q(title__icontains=self.request.GET.get('search_query')) |
+            Q(text__icontains=self.request.GET.get('search_query'))
+        )
+
 
 class PostListView(ListView):
     """Категория определенной статьи"""

@@ -29,3 +29,18 @@ def get_last_posts():
     """Включающий тег, забираем пять последних постов"""
     posts = Post.objects.select_related('category').order_by('-id')[:20]
     return {'list_last_post': posts}
+
+
+# @register.inclusion_tag('blog/include/tags/search_model.html')
+# def search_profiles(request):
+#     """Поиск постов"""
+#     search_query = ''
+#
+#     if request.GET.get('search_query'):  # если пользователь что-то введет search_query, будет True.
+#         search_query = request.GET.get('search_query')
+#
+#     post = Post.objects.distinct().filter(
+#         title__icontains=search_query
+#     )
+#
+#     return {'post': post, 'search_query': search_query}
