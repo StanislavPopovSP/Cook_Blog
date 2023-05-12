@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'blog.apps.BlogConfig', # приложение
     'contact.apps.ContactConfig', # приложение
+    'gallery.apps.GalleryConfig' # приложение
 ]
 
 MIDDLEWARE = [
