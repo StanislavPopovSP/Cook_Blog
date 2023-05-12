@@ -38,6 +38,7 @@ class Post(models.Model):
     text = models.TextField()
     category = models.ForeignKey(Category, related_name='post', on_delete=models.SET_NULL, null=True)
     tags = models.ManyToManyField(Tag, related_name='post', blank=True)
+    is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
     create_at = models.DateTimeField(auto_now_add=True)  # когда была создана данная запись
 
     def __str__(self):

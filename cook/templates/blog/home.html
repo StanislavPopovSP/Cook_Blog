@@ -1,36 +1,9 @@
 {% extends 'base.html' %}
-{% load social_tags %}
+{% load social_tags gallery_tags %}
 {% block content %}
 
 <!-- Hero Section Begin слайдер главной страницы -->
-<section class="hero">
-    <div class="hero__slider owl-carousel">
-        <div class="hero__item">
-            <div class="container-fluid">
-                <div class="row">
-                    {% for post in post_list %}
-                    <div class="col-lg-3 col-md-6 p-0">
-                        <div class="hero__inside__item set-bg" data-setbg="{{ post.image.url }}">
-                            <div class="hero__inside__item__text">
-                                <div class="hero__inside__item--meta">
-                                    <span>{{ post.create_at|date:'d' }}</span>
-                                    <p>{{ post.create_at|date:'M' }}</p>
-                                </div>
-                                <div class="hero__inside__item--text">
-                                    <ul class="label">
-                                        <li>{{ post.category }}</li>
-                                    </ul>
-                                    <h5>{{ post.title }}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {%endfor%}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{% get_last_photos_in_gallery %}
 <!-- Hero Section End -->
 
 <!-- Categories Section Begin категории -->
