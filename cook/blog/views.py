@@ -3,11 +3,17 @@ from .models import *
 from .forms import CommentForm
 from django.db.models import Q
 
+
 class HomeView(ListView):
     """Обработка главной страницы"""
     model = Post
-    paginate_by = 4 # кол-во выводимых постов
+    paginate_by = 4  # кол-во выводимых постов
     template_name = 'blog/home.html'
+
+    def get_queryset(self) -> list:
+        """Вывод постов из всех категорий"""
+        return Post.objects.filter(is_published=True).select_related('category')
+
 
 class Search(ListView):
     """Поиск постов на главной странице"""
@@ -26,8 +32,8 @@ class PostListView(ListView):
     paginate_by = 2
 
     def get_queryset(self) -> list:
-        """Фильтруем посты по нужной категории, переопределяем доступ к БД."""
-        return Post.objects.filter(category__slug=self.kwargs['slug']).select_related('category')
+        """Фильтруем опубликованные посты по нужной категории, переопределяем доступ к БД"""
+        return Post.objects.filter(category__slug=self.kwargs['slug'], is_published=True).select_related('category')
 
 
 class PostDetailView(DetailView):
@@ -58,17 +64,5 @@ class CreateComment(CreateView):
         return self.object.post.get_absolute_url()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# class Gallery(ListView):
+#     template_name =
