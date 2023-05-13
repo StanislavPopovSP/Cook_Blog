@@ -6,6 +6,8 @@ from .models import *
 class PhotoAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ['name', 'slug', 'create_date', 'get_image', 'is_published', 'id']
+    list_display_links = ('name', 'slug', 'create_date')
+    list_editable = ('is_published',)
     readonly_fields = ['get_image'] # что бы получать миниатюрку, что это за фотография
 
     def get_image(self, obj):

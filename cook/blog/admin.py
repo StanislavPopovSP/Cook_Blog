@@ -12,7 +12,7 @@ class CustomMPTTModelAdmin(MPTTModelAdmin, admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    """Регистрация и вывод нужных полей"""
+    """Настройка тегов"""
     prepopulated_fields = {'slug': ('name',)}
 
 
@@ -24,20 +24,26 @@ class RecipeInline(admin.StackedInline):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    """Регистрация и вывод нужных полей"""
+    """Настройка админ панели поста"""
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ['title', 'category', 'author', 'create_at', 'id']
+    list_display = ['title', 'category', 'author', 'create_at', 'is_published', 'id']
+    search_fields = ('title',)
     inlines = [RecipeInline] # подключение модели Recipe
+    list_editable = ['is_published']  # для того что бы поле было кликабельным, например для галочек
+    list_filter = ('is_published', 'create_at')  # фильтр полей
     save_as = True # сохраняет как новый объект, уже существующий
     save_on_top = True # кнопки сохранения будут вверху
 
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    """Регистрация и вывод нужных полей"""
+    """Настройка админ панели рецептов"""
     list_display = ['name', 'prep_time', 'cook_time', 'post', 'id']
+    list_display_links = ('name', 'post')
 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
+    """Настройка админ панели комментариев"""
     list_display = ['name', 'email', 'website', 'create_at', 'id']
+    list_filter = ('create_at',)
