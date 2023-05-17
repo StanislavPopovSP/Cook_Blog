@@ -1,3 +1,5 @@
+from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView
 from .models import *
 from .forms import CommentForm
@@ -7,7 +9,7 @@ from django.db.models import Q
 class HomeView(ListView):
     """Обработка главной страницы"""
     model = Post
-    paginate_by = 4  # кол-во выводимых постов
+    paginate_by = 10  # кол-во выводимых постов
     template_name = 'blog/home.html'
 
     def get_queryset(self) -> list:
@@ -29,7 +31,8 @@ class Search(ListView):
 class PostListView(ListView):
     """Категория определенной статьи"""
     model = Post
-    paginate_by = 2
+    paginate_by = 4
+
 
     def get_queryset(self) -> list:
         """Фильтруем опубликованные посты по нужной категории, переопределяем доступ к БД"""
@@ -57,12 +60,8 @@ class CreateComment(CreateView):
         """Привязка комментария к посту"""
         form.instance.post_id = self.kwargs.get('pk')
         self.object = form.save()
-        return super().form_valid(form)
+        return redirect(self.object.post.get_absolute_url())
 
-    def get_success_url(self):
-        """Перенаправление на страницу поста"""
-        return self.object.post.get_absolute_url()
-
-
-# class Gallery(ListView):
-#     template_name =
+    # def get_success_url(self):
+    #     """Перенаправление на страницу поста"""
+    #     return self.object.post.get_absolute_url()

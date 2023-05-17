@@ -43,11 +43,11 @@
                             </li>
                             <li>
                                 <h5><i class="fa fa-clock-o"></i> PREP TIME</h5>
-                                <span>{{ recipe.prep_time }}</span>
+                                <span>{{ recipe.prep_time }} minute{{ recipe.prep_time|pluralize:'s' }}</span>
                             </li>
                             <li>
                                 <h5><i class="fa fa-clock-o"></i> Cook TIME</h5>
-                                <span>{{ recipe.cook_time }}</span>
+                                <span>{{ recipe.cook_time }} minute{{ recipe.cook_time|pluralize:'s' }}</span>
                             </li>
                         </ul>
                     </div>
@@ -72,7 +72,7 @@
                     <a href="#">{{ tag.name }}</a>
                     {% endfor %}
                 </div>
-                <!-- Подключение включающего тега док social_tags модель About -->
+                <!-- Подключение включающего тега -->
                 {% get_about as about %}
                 <div class="single-post__author__profile">
                     <div class="single-post__author__profile__pic">
@@ -104,7 +104,7 @@
                     {% for comment in post.get_comments %}
                     <div class="single-post__comment__item">
                         <div class="single-post__comment__item__pic">
-                            <img src="{% static 'img/categories/single-post/comment/comment-1.jpg' %}" alt="">
+                            <img src="{% static 'img/categories/single-post/comment/comment-4.jpg' %}" alt="">
                         </div>
                         <div class="single-post__comment__item__text">
                             <h5>{{ comment.name }}</h5>

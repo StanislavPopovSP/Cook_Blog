@@ -12,7 +12,7 @@
 
     <!-- Google Font подключение шрифтов -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Unna:400,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles подключение стилей -->
@@ -25,36 +25,36 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
 
-    <!-- Humberger Begin выдвигающееся меню -->
-    {% include 'blog/include/nav/left_nav.html' %}
-    <!-- Humberger End -->
+<!-- Humberger Begin выдвигающееся меню -->
+{% include 'blog/include/nav/left_nav.html' %}
+<!-- Humberger End -->
 
-    <!-- Header Section Begin верхнее меню -->
-    {% include 'header.html' %}
-    <!-- Header Section End -->
+<!-- Header Section Begin верхнее меню -->
+{% include 'header.html' %}
+<!-- Header Section End -->
 
-    {% block content %}
-    {% endblock content %}
+{% block content %}
+{% endblock content %}
 
-    <!-- Footer Section Begin подвал(нижняя секция) -->
-    {% include 'footer.html' %}
-    <!-- Footer Section End -->
+<!-- Footer Section Begin подвал(нижняя секция) -->
+{% include 'footer.html' %}
+<!-- Footer Section End -->
 
-    <!-- Search Begin поиск -->
-    {% include 'search_model.html' %}
-    <!-- Search End -->
+<!-- Search Begin поиск -->
+{% include 'search_model.html' %}
+<!-- Search End -->
 
-    <!-- Js Plugins подключение JS-->
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+<!-- Js Plugins подключение JS-->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

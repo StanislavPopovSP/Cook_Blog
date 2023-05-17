@@ -1361,6 +1361,16 @@ ol {
 	margin-right: 0;
 }
 
+.container .load .box-container {
+    display: none;
+}
+
+.container .load .box-container:nth-child(1),
+.container .load .box-container:nth-child(2)
+{
+    display: inline-block;
+}
+
 .load__more__btn a {
 	display: inline-block;
 	font-size: 14px;
@@ -1369,7 +1379,33 @@ ol {
 	text-transform: uppercase;
 	padding: 12px 125px 10px;
 	background: #ebebeb;
+	cursor: pointer;
 }
+.load__more__btn a:hover {
+    background-color: crimson;
+    border-color: crimson;
+    color:#fff;
+}
+
+#load-more{
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 125px 10px;
+    border:1px solid #334;
+    color:#334;
+    font-size: 14px;
+    font-weight: 700;
+    background: #ebebeb;;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#load-more:hover{
+    background-color: crimson;
+    border-color: crimson;
+    color:#fff;
+}
+
 
 /*---------------------
   Categories Grid

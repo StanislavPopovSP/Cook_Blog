@@ -6,12 +6,14 @@
         <div class="header__megamenu">
             {% for post in list_last_post %}
             <div class="header__megamenu__item">
+                {% if post.image %}
                 <div class="header__megamenu__item--pic set-bg"
                      data-setbg="{{ post.image.url }}">
                     <div class="label">{{ post.category.name }}</div>
                 </div>
+                {% endif %}
                 <div class="header__megamenu__item--text">
-                    <h5><a href="{{ post.get_absolute_url }}">{{ post.title|truncatewords:9 }}</a>
+                    <h5><a href="{{ post.get_absolute_url }}">{{ post.title|truncatechars:21 }}</a>
                     </h5>
                 </div>
             </div>
