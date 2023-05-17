@@ -1,9 +1,13 @@
 from django.urls import reverse_lazy
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView, CreateView
 from .models import *
 from .forms import CommentForm
 from django.db.models import Q
+
+
+# def login_user(request):
+#     return render(request, 'users/login-register.html')
 
 
 class HomeView(ListView):
@@ -16,6 +20,16 @@ class HomeView(ListView):
         """Вывод постов из всех категорий"""
         return Post.objects.filter(is_published=True).select_related('category')
 
+class ViewElement(ListView):
+    """Вывод на страницу постов"""
+    model = Post
+    paginate_by = 10
+    template_name = 'users/login-register.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self) -> list:
+        """Вывод постов из всех категорий"""
+        return Post.objects.filter(is_published=True).select_related('category')
 
 class Search(ListView):
     """Поиск постов на главной странице"""
