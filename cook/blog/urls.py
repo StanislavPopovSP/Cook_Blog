@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     # path('', cache_page(60 * 15)(views.HomeView.as_view()), name='home'), # путь ведущий на главную страницу, страница закеширована. Всремя в сек 60 * 15 = 15 мин.
-    path('login/', views.ViewElement.as_view(), name='login'), # авторизация
+    path('login/', views.OutputPosts.as_view(), name='login'), # авторизация
 
     path('search/', views.Search.as_view(), name='search'),
     path('comment/<int:pk>/', views.CreateComment.as_view(), name='create_comment'), # связь комментария с постом

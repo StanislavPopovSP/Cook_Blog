@@ -20,8 +20,8 @@ class HomeView(ListView):
         """Вывод постов из всех категорий"""
         return Post.objects.filter(is_published=True).select_related('category')
 
-class ViewElement(ListView):
-    """Вывод на страницу постов"""
+class OutputPosts(ListView):
+    """Вывод на страницу регистрации постов"""
     model = Post
     paginate_by = 10
     template_name = 'users/login-register.html'
@@ -46,7 +46,6 @@ class PostListView(ListView):
     """Категория определенной статьи"""
     model = Post
     paginate_by = 4
-
 
     def get_queryset(self) -> list:
         """Фильтруем опубликованные посты по нужной категории, переопределяем доступ к БД"""
