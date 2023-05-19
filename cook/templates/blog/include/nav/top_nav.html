@@ -1,6 +1,25 @@
 {% load menu_tags %}
 
 <!-- Верхнее меню -->
+{% if user.is_authenticated %}
+<nav class="header__menu">
+    <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <!-- Вызываем включающий тег, вывод рецептов в меню -->
+        {% get_last_posts %}
+        <!-- Вызываем включающий тег, вывод категорий и подкатегорий в меню -->
+        {% get_categories %}
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li>
+            <form action="{% url 'logoutuser' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="site-btn">Выйти</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+{% else %}
 <nav class="header__menu">
     <ul>
         <li class="active"><a href="/">Home</a></li>
@@ -12,3 +31,4 @@
         <li><a href="{% url 'contact' %}">Contact</a></li>
     </ul>
 </nav>
+{% endif %}
