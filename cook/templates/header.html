@@ -1,4 +1,4 @@
-{% load static social_tags %}
+{% load static social_tags cache  %}
 
 <header class="header">
     <div class="header__top">
@@ -30,6 +30,7 @@
                 </div>
                 {% endif %}
             </div>
+            {% cache 600 header__logo %}
             <div class="col-lg-6 col-md-6">
                 <div class="header__logo">
                     <a href="/"><img src="{% static 'img/logo.png' %}" alt=""></a>
@@ -48,6 +49,7 @@
                         {% endfor %}
                 </div>
             </div>
+            {% endcache %}
         </div>
     </div>
 </header>
