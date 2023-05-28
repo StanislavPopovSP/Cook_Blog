@@ -22,7 +22,7 @@
 
 ##### 3) Создать виртуальное окружение
 
-    cd cook_blog
+    cd cook
     
     python -m venv venv
     
