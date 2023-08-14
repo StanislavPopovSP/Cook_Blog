@@ -139,7 +139,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-LOGIN_REDIRECT_URL = '/' # Что бы перенаправляло на главную страницу поле того как залогинился пользователь.
+LOGIN_REDIRECT_URL = '/'  # Что бы перенаправляло на главную страницу поле того как залогинился пользователь.
 
 INTERNAL_IPS = [
     "127.0.0.1",
